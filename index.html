@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css" type="text/css">
-  <title>Jambuddy</title>
-</head>
-<body>
-  <div class="main">
-    <div class="logo">
-      <h1 class="main_title">JAMBUDDY</h1>
-      <img src="./images/504759-f44336.svg" alt="">
-    </div>
-    <div class="container">
-      <div class="notes">
-        <h3>Notes Distance</h3>
-        <input type="number" class="input number ans-input" placeholder="Enter Number" value=""/>
-        <br>
-        <div class="center_ans">
-          <div class="value_ans guide" >Press Get Random Notes To Start!</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <title>Jambuddy</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="logo">
+        <h1 class="main_title">JAMBUDDY</h1>
+        <img src="./images/504759-f44336.svg" alt="" />
+      </div>
+      <div class="container">
+        <div class="notes">
+          <p class="streak">Winning Streak: 0</p>
+          <h3>Notes Distance</h3>
+          <input
+            type="number"
+            class="input number ans-input"
+            placeholder="Enter Number"
+            value=""
+          />
+          <br />
+          <div class="center_ans">
+            <div class="value_ans guide">Press Get Random Notes To Start!</div>
+          </div>
+          <div id="explanation">
+            <div class="value_reveal show">
+              <h4 class="reveal_answer">Notes</h4>
+              <ul class="notes_guide">
+                <li class="tone one" note="A">A</li>
+                <li class="tone two" note="A#,Bb">A#/Bb</li>
+                <li class="tone three" note="B">B</li>
+                <li class="tone four" note="C">C</li>
+                <li class="tone five" note="C#,Db">C#/Db</li>
+                <li class="tone six" note="D">D</li>
+                <li class="tone seven" note="D#,Eb">D#/Eb</li>
+                <li class="tone eight" note="E">E</li>
+                <li class="tone nine" note="F">F</li>
+                <li class="tone ten" note="F#,Gb">F#/Gb</li>
+                <li class="tone eleven" note="G">G</li>
+                <li class="tone twelve" note="G#,Ab">G#/Ab</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="get_random">
+          <button id="getRandomNote" class="btn selected random-notes-btn">
+            Get Random Notes
+          </button>
+          <div>
+            <div class="note">
+              <div>
+                <div class="title">First Note</div>
+              </div>
+              <div class="value first-note">-</div>
+            </div>
+            <div class="note">
+              <div>
+                <div class="title">Second Note</div>
+              </div>
+              <div class="value second-note">-</div>
+            </div>
+          </div>
+          <button class="btn selected answer-btn">Check Answer</button>
+          <button class="btn selected reveal-btn">Reveal Answer</button>
         </div>
       </div>
-      <div class="get_random">
-        <button id="getRandomNote" class="btn selected random-notes-btn">Get Random Notes</button>
-        <div>
-          <div class="note">
-            <div>
-              <div class="title">First Note</div>
-            </div>
-            <div class="value first-note" >-</div>
-          </div>
-          <div class="note">
-            <div>
-              <div class="title">Second Note</div>
-            </div>
-            <div class="value second-note" >-</div>
-          </div>
-        </div>
-        <button class="btn selected answer-btn">Check Answer</button>
-      </div>
     </div>
-  </div>
-  <script src="./index.js"></script>
-</body>
+    <script src="build/main.js"></script>
+  </body>
 </html>
