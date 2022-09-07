@@ -72,6 +72,7 @@ obj.revealNotesButton.addEventListener("click", () => {
     obj.revealGuide.style.display = "none";
     obj.revealNotesButton.innerText = "Reveal Answer";
     obj.guideColor.style.color = "black";
+    obj.guide.innerText = "Press Get Random Notes To Continue!";
   } else {
     obj.revealAns.style.display = "block"
     obj.revealAns.style.color = "black";
@@ -134,7 +135,6 @@ obj.answerButton.addEventListener("click", () => {
       obj.revealNotesButton.innerText = "Hide Answer";
       obj.streak.innerText = `Winning Streak: ${obj.store.streak}`;
       obj.answerButton.style.display = "none";
-      obj.guide.innerText = "Press Get Random Notes To Continue!";
     } else {
       obj.revealGuide.style.display = "none";
       obj.guide.style.display = "block"
