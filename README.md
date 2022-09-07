@@ -1,7 +1,7 @@
 <h1 align="center">ECNEREFFID-ENOTIMES</h1>
 
 <p align="center">
-  Up For The Challenge? Play & Improve Your Music Theory. Pick The Correct Distance Between Two Random Notes & Win.
+  Up For A Challenge? Play & Improve Your Music Theory. Pick The Correct Distance Between Two Random Notes & Win.
 </p>
 
 ## Link
