@@ -85,6 +85,9 @@ img {
     transition-duration: .2s;
     margin-bottom: .4em;
 }
+.answer-btn {
+    display: block;
+}
 .selected{
     background-color: crimson;
     color: gold;    
@@ -148,6 +151,9 @@ img {
     border-style: solid;
     border-radius: 10px;
     width: 4em;
+}
+.reveal_answer {
+    display: block;
 }
 .reset{
     margin-top: 20px;

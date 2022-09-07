@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 obj.randomNotesButton.addEventListener("click", () => {
+  if(obj.answerButton.style.display === "none") {
+    obj.answerButton.style.display = "block";
+  }
+  obj.revealAns.style.display = "block"
   obj.guide.style.display = "block";  
   obj.revealGuide.style.display = "none";
   obj.revealNotesButton.innerText = "Reveal Answer";
@@ -58,32 +62,27 @@ obj.randomNotesButton.addEventListener("click", () => {
   obj.store.notes.push(notes[0]);
   obj.store.notes.push(notes[1]);
   obj.store.ans = answer();
-  obj.store.streak = 0;
-  obj.revealAns.style.color = "black";
-  obj.revealGuide.style.backgroundColor = "gold";
 });
 
 obj.revealNotesButton.addEventListener("click", () => {
   obj.revealAns.innerText = `Final Answer ${obj.store.ans}`;
+  obj.revealAns.style.display = "block"
   if(obj.revealNotesButton.innerText === "Hide Answer") {
     obj.guide.style.display = "block";  
     obj.revealGuide.style.display = "none";
     obj.revealNotesButton.innerText = "Reveal Answer";
+    obj.guideColor.style.color = "black";
   } else {
+    obj.revealAns.style.display = "block"
     obj.revealAns.style.color = "black";
     obj.revealGuide.style.backgroundColor = "gold";
     obj.guide.style.display = "none";  
     obj.revealGuide.style.display = "block";
     obj.revealNotesButton.innerText = "Hide Answer";
+    obj.answerButton.style.display = "none";
+    obj.guide.innerText = "Press Get Random Notes To Continue!";
   }
-  obj.notes.forEach((note) => {
-    if(note.getAttribute("note").length > 2 && note.getAttribute("note").slice(0,2) === obj.store.notes[0] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(0,2) === obj.store.notes[1] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(3) === obj.store.notes[0] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(3) === obj.store.notes[1]) {
-      note.style.backgroundColor = "white";
-    }
-    if (note.getAttribute("note") === obj.store.notes[0] || note.getAttribute("note") === obj.store.notes[1]) {
-      note.style.backgroundColor = "white";
-    }
-  });
+  revealAnswer();
 });
 
 obj.answerInput.addEventListener("change", () => {
@@ -125,13 +124,17 @@ obj.answerButton.addEventListener("click", () => {
     buddy.currSelectedNotes = obj.store.notes;
     const ans = buddy.checkAnswer(Number(obj.store.num));
     if (ans === true) {
+      revealAnswer()
+      obj.store.streak++;
+      obj.revealAns.style.display = "none"
       obj.guide.style.display = "block"
       obj.guideColor.style.color = "green";
       obj.guide.innerText = "You've Got It Right. Well Done!";
       obj.revealGuide.style.display = "block";
       obj.revealNotesButton.innerText = "Hide Answer";
-      obj.store.streak++;
       obj.streak.innerText = `Winning Streak: ${obj.store.streak}`;
+      obj.answerButton.style.display = "none";
+      obj.guide.innerText = "Press Get Random Notes To Continue!";
     } else {
       obj.revealGuide.style.display = "none";
       obj.guide.style.display = "block"
@@ -144,6 +147,17 @@ obj.answerButton.addEventListener("click", () => {
     obj.store.num = "empty";
   }
 });
+
+function revealAnswer() {
+  obj.notes.forEach((note) => {
+    if(note.getAttribute("note").length > 2 && note.getAttribute("note").slice(0,2) === obj.store.notes[0] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(0,2) === obj.store.notes[1] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(3) === obj.store.notes[0] || note.getAttribute("note").length > 2 && note.getAttribute("note").slice(3) === obj.store.notes[1]) {
+      note.style.backgroundColor = "white";
+    }
+    if (note.getAttribute("note") === obj.store.notes[0] || note.getAttribute("note") === obj.store.notes[1]) {
+      note.style.backgroundColor = "white";
+    }
+  });
+}
 
 function answer() {
   const buddy = new JamBuddy();
